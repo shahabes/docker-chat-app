@@ -1,0 +1,56 @@
+.shs-background{
+    background-color: rgb(28, 145, 212);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.shs-naming-container{
+    background-color: white;
+    border-radius: 30px;
+    padding: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.shs-child{
+    margin: 10px;
+}
+
+
+.shs-naming-container h1{
+    font-weight: bolder;
+    font-size: 50px;
+}
+
+.shs-naming-container p{
+    font-size: 22px;
+}
+
+.shs-naming-container input[type=text]{
+    padding: 10px;
+    outline: none;
+    font-weight: lighter;
+    border-radius: 30px;
+    border: 1px solid gray;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.shs-naming-container input[type=submit]{
+    padding: 10px;
+    width: fit-content;
+    background:rgb(28, 145, 212);
+    color: white;
+    padding: 20px;
+    border-radius: 30px;
+    border: none;
+    margin: 10px auto;
+    font-weight: lighter;
+}
+
+.shs-naming-container input[type=submit]:hover{
+    background:rgb(15, 109, 163);
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>twitter</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="h-100">
+  <div class="container-fluid h-100 shs-background">
+    <div class="shs-naming-container">
+      <div class="chat-box">
+        <div class="messages-wrapper" id="messagewrapper">
+          
+        </div>
+      
+
+        <div class="gradientback">
+
+        </div>
+
+      </div>
+      <div class="sending-message">
+        <div class="profile"></div>
+        <input type="text" class="shs-child" placeholder="enter the message" id="message" />
+        <div class="send-btn" id="send_btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g data-name="Layer 2">
+              <g data-name="arrow-forward">
+                <rect width="24" height="24" transform="rotate(-90 12 12)" opacity="0" />
+                <path
+                  d="M5 13h11.86l-3.63 4.36a1 1 0 0 0 1.54 1.28l5-6a1.19 1.19 0 0 0 .09-.15c0-.05.05-.08.07-.13A1 1 0 0 0 20 12a1 1 0 0 0-.07-.36c0-.05-.05-.08-.07-.13a1.19 1.19 0 0 0-.09-.15l-5-6A1 1 0 0 0 14 5a1 1 0 0 0-.64.23 1 1 0 0 0-.13 1.41L16.86 11H5a1 1 0 0 0 0 2z" />
+              </g>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+  <script>
+
+    var currentUser = '';
+    var lastUser = '';
+    const socket = io("http://localhost:3000");
+
+    $(document).ready(function () {
+      let username = localStorage.getItem("username");
+      currentUser = username;
+      var initial = (username.charAt(0) + username.charAt(1)).toUpperCase();
+      let color = Math.floor(Math.random() * 16777215).toString(16);
+      $(".sending-message .profile").text(initial);
+      $("#send_btn").click(() => {
+       if($("#message").val()){
+        let message = {
+          name : username,
+          message : $("#message").val()
+        };
+        socket.emit("message_received", message);
+        $("#message").val("");
+       }
+      });
+
+      socket.on("new_message", (message) => {
+        let socketUseranem = message.name;
+        let socketMessage = message.message;
+        let messageWrapper = $("#messagewrapper");
+        if(socketUseranem === currentUser){
+          messageWrapper.append(`<div class="message me">${socketMessage}</div>`);
+        }else{
+          if(socketUseranem === lastUser){
+            messageWrapper.append(`<div class="other-message-wrapper"><div class="name d-none"></div><div class="message other">${socketMessage}</div></div>`);
+          }else{
+            let avatarName = (socketUseranem.charAt(0) + socketUseranem.charAt(1)).toUpperCase();
+            messageWrapper.append(`<div class="other-message-wrapper"><div class="name">${avatarName}</div><div class="message other">${socketMessage}</div></div>`);
+            lastUser = socketUseranem;
+          }
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>

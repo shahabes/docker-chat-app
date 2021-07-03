@@ -1,0 +1,186 @@
+.shs-background {
+  background-color: rgb(28, 145, 212);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shs-naming-container {
+  background-color: white;
+  border-radius: 30px;
+  padding: 0 !important;
+  width: 700px;
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  position: relative;
+}
+
+.shs-child {
+  margin: 10px;
+}
+.sending-message {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30px;
+  align-items: center;
+  /* border: 2px solid rgb(28, 145, 212); */
+}
+
+.shs-naming-container h1 {
+  font-weight: bolder;
+  font-size: 50px;
+}
+
+.shs-naming-container p {
+  font-size: 22px;
+}
+
+.shs-naming-container input[type="text"] {
+  padding: 10px;
+  outline: none;
+  font-weight: lighter;
+  border-radius: 30px;
+  border: none;
+  width: 80%;
+  margin: 0;
+}
+
+.send-btn {
+  padding: 10px;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 30px;
+  background: rgb(28, 145, 212);
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  margin: 10px;
+  transition: ease all 0.5s;
+}
+
+.profile {
+  width: fit-content;
+  padding: 5px;
+  border-radius: 30px;
+  color: rgb(28, 145, 212);
+  border: none;
+  margin: 0;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 10px;
+  transition: ease all 0.5s;
+}
+
+.gradientback {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 200px;
+  border-radius: 0 0 30px 30px;
+  background: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  ); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(255, 255, 255, 0)),
+    color-stop(100%, rgb(255, 255, 255))
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  ); /* IE10+ */
+  background: linear-gradient(
+    to bottom,
+    rgba(137, 255, 241, 0) 0%,
+    rgb(255, 255, 255) 100%
+  ); /* W3C */
+}
+
+.chat-box {
+  height: 430px;
+  padding: 20px;
+  /* position: relative; */
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 400px;
+  width: fit-content;
+  background: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 30px;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  border-top-right-radius: 0;
+}
+
+.receiver-profile {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.receiver-profile p {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+.other-message-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.other-message-wrapper .name {
+  padding: 10px;
+  text-align: center;
+  background: rgb(48, 162, 228);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border-top-right-radius: 0;
+  color: white;
+}
+
+.message.other {
+  margin-left: 5px;
+  background: rgb(48, 162, 228);
+  border-top-left-radius: 0;
+  border-top-right-radius: 30px;
+
+  color: white;
+  font-weight: 100;
+}
+
+.send-btn:hover {
+}
+.send-btn svg {
+  width: 25px;
+  fill: white;
+  transition: ease all 0.5s;
+}
+
+.shs-naming-container input[type="submit"]:hover {
+  background: rgb(15, 109, 163);
+}
